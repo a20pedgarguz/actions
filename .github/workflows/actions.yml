@@ -4,6 +4,23 @@ on:
   push:
     branches: [ main ]
 jobs:
+   ESLINT-CHECK:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtenint el codi del respositori
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: cd vue-project && npm install
+
+      - name: Run ESLint
+        run: npx eslint ./src/*
+
   VUE-CLI-DEPLOY:
     runs-on: ubuntu-latest
     steps:
@@ -23,3 +40,5 @@ jobs:
           scp -r -o stricthostkeychecking=no -o UserKnownHostsFile=/dev/null -i "~/prod_key.pem" ./dist/* ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:/home/a20pedgarguz/web/actions.a20pedgarguz.daw.inspedralbes.cat/public_html/vue
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
+ 
+  
