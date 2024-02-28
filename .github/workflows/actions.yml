@@ -20,24 +20,24 @@ jobs:
         npx eslint ./src/*
       run: echo "🍏 This job's status is ${{ job.status }}."
 
-  VUE-CLI-DEPLOY:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Obtenint el codi del respositori
-        uses: actions/checkout@v4
+  # VUE-CLI-DEPLOY:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Obtenint el codi del respositori
+  #       uses: actions/checkout@v4
 
-      - name: Pujar a produccio amb SCP VUE CLI
-        run: |
-          echo "${{ secrets.PROD_KEY }}" > ~/prod_key.pem
-          chmod 600 ~/prod_key.pem
-          cd ${{ github.workspace }}
-          echo "Action desplegant a produccio" > ./web/last_deploy.txt
-          date >> ./web/last_deploy.txt
-          cd vue-project
-          npm install
-          npm run build
-          scp -r -o stricthostkeychecking=no -o UserKnownHostsFile=/dev/null -i "~/prod_key.pem" ./dist/* ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:/home/a20pedgarguz/web/actions.a20pedgarguz.daw.inspedralbes.cat/public_html/vue
+  #     - name: Pujar a produccio amb SCP VUE CLI
+  #       run: |
+  #         echo "${{ secrets.PROD_KEY }}" > ~/prod_key.pem
+  #         chmod 600 ~/prod_key.pem
+  #         cd ${{ github.workspace }}
+  #         echo "Action desplegant a produccio" > ./web/last_deploy.txt
+  #         date >> ./web/last_deploy.txt
+  #         cd vue-project
+  #         npm install
+  #         npm run build
+  #         scp -r -o stricthostkeychecking=no -o UserKnownHostsFile=/dev/null -i "~/prod_key.pem" ./dist/* ${{ secrets.PROD_USER }}@${{ secrets.PROD_HOST }}:/home/a20pedgarguz/web/actions.a20pedgarguz.daw.inspedralbes.cat/public_html/vue
           
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+  #     - run: echo "🍏 This job's status is ${{ job.status }}."
  
   
