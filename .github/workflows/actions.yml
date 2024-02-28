@@ -1,8 +1,7 @@
 name: Preparant per producció
-run-name: ${{ github.actor }} està pujant l'aplicació a PROD  🚀
-on: 
+on:
   push:
-    branches: [ main ]
+    branches: [main]
 jobs:
   ESLINT-CHECK:
     runs-on: ubuntu-latest
@@ -11,12 +10,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: | 
+        run: |
           cd vue-project 
           npm install
 
       - name: Run ESLint
-        run: | 
+        run: |
           npx eslint ./src/*
       run: echo "🍏 This job's status is ${{ job.status }}."
 
