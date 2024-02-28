@@ -11,10 +11,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: cd vue-project && npm install
+        run: | 
+        cd vue-project 
+        npm install
 
       - name: Run ESLint
-        run: npx eslint ./src/*
+        run: | 
+        npx eslint ./src/*
       run: echo "🍏 This job's status is ${{ job.status }}."
 
   VUE-CLI-DEPLOY:
