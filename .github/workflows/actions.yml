@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-   ESLINT-CHECK:
+  ESLINT-CHECK:
     runs-on: ubuntu-latest
     steps:
       - name: Obtenint el codi del respositori
@@ -15,6 +15,7 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint ./src/*
+    - run: echo "🍏 This job's status is ${{ job.status }}."
 
   VUE-CLI-DEPLOY:
     runs-on: ubuntu-latest
