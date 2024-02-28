@@ -17,7 +17,7 @@ jobs:
       - name: Run ESLint
         run: |
           npx eslint ./src/*
-      run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🍏 This job's status is ${{ job.status }}."
 
   # VUE-CLI-DEPLOY:
   #   runs-on: ubuntu-latest
