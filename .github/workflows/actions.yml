@@ -10,11 +10,6 @@ jobs:
       - name: Obtenint el codi del respositori
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
       - name: Install dependencies
         run: cd vue-project && npm install
 
