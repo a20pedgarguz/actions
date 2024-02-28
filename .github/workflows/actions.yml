@@ -4,18 +4,18 @@ on:
   push:
     branches: [ main ]
 jobs:
-  # ESLINT-CHECK:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Obtenint el codi del respositori
-  #       uses: actions/checkout@v4
+  ESLINT-CHECK:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtenint el codi del respositori
+        uses: actions/checkout@v4
 
-  #     - name: Install dependencies
-  #       run: cd vue-project && npm install
+      - name: Install dependencies
+        run: cd vue-project && npm install
 
-  #     - name: Run ESLint
-  #       run: npx eslint ./src/*
-  #     run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Run ESLint
+        run: npx eslint ./src/*
+      run: echo "🍏 This job's status is ${{ job.status }}."
 
   VUE-CLI-DEPLOY:
     runs-on: ubuntu-latest
