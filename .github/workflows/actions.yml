@@ -16,6 +16,7 @@ jobs:
 
       - name: Run ESLint
         run: |
+          pwd
           npx eslint src/*
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
