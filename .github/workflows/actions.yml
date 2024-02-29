@@ -9,14 +9,12 @@ jobs:
       - name: Obtenint el codi del respositori
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Comprovant amb lints
         run: |
           cd vue-project 
           npm install
           npx eslint ./src/App.vue
 
-      # - name: Run ESLint
-      #   run: |
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   # VUE-CLI-DEPLOY:
