@@ -13,7 +13,7 @@ jobs:
         run: |
           cd vue-project 
           npm install
-          npx eslint ./src/App.vue
+          npx eslint ./src/**/*
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
