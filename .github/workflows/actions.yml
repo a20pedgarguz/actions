@@ -13,10 +13,10 @@ jobs:
         run: |
           cd vue-project 
           npm install
-
-      - name: Run ESLint
-        run: |
           npx eslint ./src/views/HomeView.vue
+
+      # - name: Run ESLint
+      #   run: |
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   # VUE-CLI-DEPLOY:
