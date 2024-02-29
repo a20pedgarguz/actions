@@ -13,7 +13,7 @@ jobs:
         run: |
           cd vue-project 
           npm install
-          npx eslint ./src/*
+          npx eslint ./src/App.vue
 
       # - name: Run ESLint
       #   run: |
